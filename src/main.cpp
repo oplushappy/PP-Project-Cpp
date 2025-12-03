@@ -60,7 +60,7 @@ public:
     }
 
 private:
-    std::queue<T> queue_;
+    std::queue<T> queue_; // deque
     size_t capacity_;
     std::mutex mtx_;
     std::condition_variable not_empty_;
@@ -227,7 +227,8 @@ void decode_stage_single(cv::VideoCapture &cap,
         if (!ok || frame.empty()) {
             break;
         }
-        decodeQueue.push(FramePacket(index, frame.clone(), false));
+        // decodeQueue.push(FramePacket(index, frame.clone(), false));
+        decodeQueue.push(FramePacket(index, frame, false));
         ++index;
     }
     decodeQueue.push(FramePacket(-1, cv::Mat(), true));
@@ -421,7 +422,8 @@ void decode_stage_multi(cv::VideoCapture &cap,
 #endif
         if (!ok || frame.empty()) break;
 
-        decodeQueue.push(FramePacket(index, frame.clone(), false));
+        // decodeQueue.push(FramePacket(index, frame.clone(), false));
+        decodeQueue.push(FramePacket(index, frame, false));
         ++index;
     }
 
