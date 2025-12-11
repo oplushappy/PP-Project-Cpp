@@ -9,7 +9,7 @@ find_package(OpenCV REQUIRED)
 find_package(Threads REQUIRED)
 
 add_executable(pp_app
-    src/main.cpp
+    src/main3.cpp
 )
 
 target_link_libraries(pp_app
