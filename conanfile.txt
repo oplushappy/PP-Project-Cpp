@@ -1,6 +1,5 @@
 [requires]
 opencv/4.12.0
-ffmpeg/8.0.1
 
 [generators]
 CMakeDeps
